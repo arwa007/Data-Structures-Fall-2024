@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class account{
+    double balance;
+
+    public:
+    account(){}
+    account(double balance) : balance(balance) {}
+    account(account &other) {this->balance = other.balance;}
+
+    void printBalance(){
+        cout << "The balance is " << balance << endl;
+    }
+
+    void deduct(int value){
+        balance -= value;
+    }
+};
+
+int main(){
+    account acc1;
+    cout << "Printing balance of account 1..." << endl;
+    acc1.printBalance();
+
+    account acc2(1000);
+    cout << "Printing balance of account 2..." << endl;
+    acc2.printBalance();
+
+    account acc3(acc2);
+    acc3.deduct(200);
+    cout << "Printing balance of account 3 after deduction..." << endl;
+    acc3.printBalance();
+
+    cout << "Printing balance of account 2..." << endl;
+    acc2.printBalance();
+
+
+    return 0;
+
+}
