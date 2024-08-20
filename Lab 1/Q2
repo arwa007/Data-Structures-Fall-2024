@@ -1,0 +1,48 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Exam{
+    string *name;
+    string date;
+    int score;
+
+    public:
+
+    Exam(){name = new string;}
+    ~Exam(){delete name;}
+
+    void setName(string n){*name = n;}
+    void setDate(string date){this->date = date;}
+    void setScore(int score){this->score = score;}
+
+    void display(){
+        cout << "Displaying Exam Details: " << endl;
+        cout << "Name: " << *name << endl;
+        cout << "Score: " << score << endl;
+        cout << "Date: " << date << "\n" << endl;
+    }
+};
+
+    int main(){
+
+        Exam exam1;
+        exam1.setName("Arwa");
+        exam1.setDate("17 April 2024");
+        exam1.setScore(100);
+        cout << "Exam 1: " << endl;
+        exam1.display();
+
+
+        Exam exam2 = exam1;
+        cout  << "Exam 2 after default copy constructor: " << endl;
+        exam2.display();
+
+        cout <<"Changing Exam 1 Name..." << endl;
+        exam1.setName("Haider");
+        cout << "Displaying Exam 2 after exam 1 name change" << endl;
+        cout << "Exam 2:" << endl;
+        exam2.display(); 
+        cout << "Note: Changes copied in Exam 2." << endl;
+        return 0;
+    }
