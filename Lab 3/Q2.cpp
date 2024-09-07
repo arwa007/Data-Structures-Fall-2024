@@ -196,8 +196,8 @@ int main(){
 
     l1.displayList();
 
-    cout << "Placing all evens before odds: " << endl;
-    l1.placeEvenbeforeOdd();
+    cout << "Reversing the list: " << endl;
+    l1.reverseList();
     l1.displayList();
 
     return 0;
